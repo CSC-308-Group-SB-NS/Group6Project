@@ -7,17 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ModelViewController: UIViewController {
     // Test
     let cars = ["2010 BMW", "2005 BMW", "2012 BMW", "2025 BMW"]
     let prices = ["$20,000-$40,000", "$10,000-$20,000", "$30,000-$50,000", "$50,000-$70,000"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-extension ViewController: UITableViewDataSource
+extension ModelViewController: UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
         return cars.count
