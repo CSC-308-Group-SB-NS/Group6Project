@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5ECA902D2F94391D0019D46F /* CarTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECA902C2F94391D0019D46F /* CarTypeViewController.swift */; };
+		5EE91C2E2F96EC4000BA99F4 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91C2D2F96EC4000BA99F4 /* BuyViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5E8D1B392F909CD400913074 /* Group6Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group6Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ECA902C2F94391D0019D46F /* CarTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypeViewController.swift; sourceTree = "<group>"; };
+		5EE91C2D2F96EC4000BA99F4 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +52,8 @@
 		5E8D1B302F909CD400913074 = {
 			isa = PBXGroup;
 			children = (
+				5EE91C2D2F96EC4000BA99F4 /* BuyViewController.swift */,
+				5ECA902C2F94391D0019D46F /* CarTypeViewController.swift */,
 				5E8D1B3B2F909CD400913074 /* Group6Project */,
 				5E8D1B3A2F909CD400913074 /* Products */,
 			);
@@ -132,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECA902D2F94391D0019D46F /* CarTypeViewController.swift in Sources */,
+				5EE91C2E2F96EC4000BA99F4 /* BuyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,33 +7,50 @@
 
 import UIKit
 
-class ModelViewController: UIViewController {
-    // Test
-    let cars = ["2010 BMW", "2005 BMW", "2012 BMW", "2025 BMW"]
-    let prices = ["$20,000-$40,000", "$10,000-$20,000", "$30,000-$50,000", "$50,000-$70,000"]
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
+    class ModelViewController: UIViewController {
+        
+        var carType: String? = nil
+        var selectedCar: String?
+        var selectedPrice: String?
+        var selectedIndex: IndexPath?
+        
+        let cars = ["2010 BMW", "2005 BMW", "2012 BMW", "2025 BMW"]
+        let prices = ["$20,000-$40,000", "$10,000-$20,000", "$30,000-$50,000", "$50,000-$70,000"]
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            print(carType ?? "nil")
+        }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard segue.identifier == "showBuy",
+                  let indexPath = sender as? IndexPath else { return }
 
-extension ModelViewController: UITableViewDataSource
-{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return cars.count
+            let destination = segue.destination as! BuyViewController
+            destination.carName = cars[indexPath.section]
+            destination.carPrice = prices[indexPath.section]
+        }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "vehicleCell", for: indexPath)
+
+    extension ModelViewController: UITableViewDataSource, UITableViewDelegate {
         
-        cell.textLabel?.text = cars[indexPath.section]
-        cell.detailTextLabel?.text = prices[indexPath.section]
-        cell.imageView?.image = UIImage(systemName: "car.fill")
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return cars.count
+        }
         
-        return cell
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "vehicleCell", for: indexPath)
+            cell.textLabel?.text = cars[indexPath.section]
+            cell.detailTextLabel?.text = prices[indexPath.section]
+            cell.imageView?.image = UIImage(systemName: "car.fill")
+            
+            return cell
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "showBuy", sender: indexPath)
+        }
     }
-    
-}

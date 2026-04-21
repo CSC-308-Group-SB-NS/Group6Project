@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FOG-i2-Nyc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="68N-v1-xZh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Model View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Group6Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ModelViewController" customModule="Group6Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="unV-1X-gq4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -48,16 +50,142 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="eUo-NH-gMn"/>
+                    <connections>
+                        <segue destination="Q0d-ct-i8i" kind="presentation" identifier="showBuy" id="hAg-12-x3a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1982.4427480916029" y="-27.464788732394368"/>
+        </scene>
+        <!--Buy View Controller-->
+        <scene sceneID="WZw-Cf-Dem">
+            <objects>
+                <viewController id="Q0d-ct-i8i" customClass="BuyViewController" customModule="Group6Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ypv-ZQ-iT6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47Q-BK-3Ux">
+                                <rect key="frame" x="30" y="79" width="333" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yVG-tb-XCE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E7U-y8-nb3">
+                                <rect key="frame" x="30" y="144" width="333" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="pFL-wi-D5v"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-bQ-qxh">
+                                <rect key="frame" x="43" y="404" width="320" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="eHq-48-bU7"/>
+                                    <constraint firstAttribute="height" constant="300" id="ysm-hh-nXE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-zr-vmd">
+                                <rect key="frame" x="30" y="312" width="333" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ElD-9P-ZGY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NpD-bP-NPP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="E7U-y8-nb3" firstAttribute="leading" secondItem="NpD-bP-NPP" secondAttribute="leading" constant="30" id="3Cp-mg-QTB"/>
+                            <constraint firstItem="E7U-y8-nb3" firstAttribute="top" secondItem="47Q-BK-3Ux" secondAttribute="bottom" constant="15" id="4ow-EX-5f9"/>
+                            <constraint firstItem="47Q-BK-3Ux" firstAttribute="top" secondItem="NpD-bP-NPP" secondAttribute="top" constant="20" id="5Qi-LH-2dS"/>
+                            <constraint firstItem="D0o-bQ-qxh" firstAttribute="top" secondItem="q2W-zr-vmd" secondAttribute="bottom" constant="52" id="7ix-YC-ePC"/>
+                            <constraint firstItem="D0o-bQ-qxh" firstAttribute="trailing" secondItem="q2W-zr-vmd" secondAttribute="trailing" id="Bs9-YE-NIZ"/>
+                            <constraint firstItem="47Q-BK-3Ux" firstAttribute="leading" secondItem="NpD-bP-NPP" secondAttribute="leading" constant="30" id="U7J-fC-eDe"/>
+                            <constraint firstItem="q2W-zr-vmd" firstAttribute="top" secondItem="E7U-y8-nb3" secondAttribute="bottom" constant="40" id="V57-L1-Pua"/>
+                            <constraint firstItem="q2W-zr-vmd" firstAttribute="leading" secondItem="NpD-bP-NPP" secondAttribute="leading" constant="30" id="bmS-vQ-3k1"/>
+                            <constraint firstItem="NpD-bP-NPP" firstAttribute="trailing" secondItem="q2W-zr-vmd" secondAttribute="trailing" constant="30" id="gC7-vU-fJa"/>
+                            <constraint firstItem="NpD-bP-NPP" firstAttribute="trailing" secondItem="E7U-y8-nb3" secondAttribute="trailing" constant="30" id="lpa-Vj-Cbx"/>
+                            <constraint firstItem="NpD-bP-NPP" firstAttribute="trailing" secondItem="47Q-BK-3Ux" secondAttribute="trailing" constant="30" id="rk5-xo-L7N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u1y-ka-UuX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAK-BF-uBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2887.7862595419847" y="-27.464788732394368"/>
+        </scene>
+        <!--Vechile Type-->
+        <scene sceneID="ZWv-CY-d3r">
+            <objects>
+                <viewController id="68N-v1-xZh" customClass="CarTypeViewController" customModule="Group6Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LMz-9n-dkB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Wq-Me-vCB">
+                                <rect key="frame" x="20" y="144" width="353" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cop-HK-d2y">
+                                    <size key="itemSize" width="333" height="327"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarTypeCell" id="ucz-KT-eVa">
+                                        <rect key="frame" x="10" y="0.0" width="333" height="327"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VOa-2W-R9J">
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="327"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="333" height="327"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="showModel" id="ORs-3s-xvA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="68N-v1-xZh" id="Crr-Kx-dos"/>
+                                    <outlet property="delegate" destination="68N-v1-xZh" id="SvI-Lv-0Pe"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome! Please select a vehicle type." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjB-e3-bLm">
+                                <rect key="frame" x="30" y="557" width="333" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Emd-AJ-x0B"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vechile Type" id="g9l-wM-auB"/>
+                    <connections>
+                        <outlet property="collectionView" destination="2Wq-Me-vCB" id="Hqj-9c-Bx3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5MZ-nG-2bd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.48091603053435" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NhL-Yv-hZZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FOG-i2-Nyc" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tUZ-f1-evq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ydC-zB-jE9">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -69,10 +197,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5T-6Y-Y6S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KEg-R1-Ysk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gt6-rW-l3k" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GRL-q8-Tto">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="68N-v1-xZh" kind="relationship" relationship="rootViewController" id="idQ-N2-qNq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14w-Sb-ZMR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-799.23664122137404" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Res-Ed-Xem"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
