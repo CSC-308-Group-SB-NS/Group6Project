@@ -8,8 +8,8 @@
 import UIKit
 
 class CarTypeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    let carTypes = ["BMW", "SUV", "Truck", "Motorcycles"]
-    let carCounts = [4, 3, 5, 1]
+    let carTypes = ["BMW", "Ford", "Harley Davidson", "Volkswagen"]
+    let carCounts = [4, 4, 2, 2]
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,14 +53,13 @@ class CarTypeViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showModel", sender: indexPath)
+        performSegue(withIdentifier: "showModal", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showModel",
-           let cell = sender as? UICollectionViewCell,
-           let indexPath = collectionView.indexPath(for: cell) {
+        if segue.identifier == "showModal",
+           let indexPath = sender as? IndexPath{
             
             let destination = segue.destination as! ModelViewController
             destination.carType = carTypes[indexPath.item]

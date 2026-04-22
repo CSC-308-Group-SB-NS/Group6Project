@@ -14,12 +14,55 @@ import UIKit
         var selectedPrice: String?
         var selectedIndex: IndexPath?
         
-        let cars = ["2010 BMW", "2005 BMW", "2012 BMW", "2025 BMW"]
-        let prices = ["$20,000-$40,000", "$10,000-$20,000", "$30,000-$50,000", "$50,000-$70,000"]
+        var cars: [String] = []
+        var prices: [String] = []
+        var images: [UIImage] = []
+        
         override func viewDidLoad() {
             super.viewDidLoad()
-            print(carType ?? "nil")
         }
+        
+        @IBAction func cancelBtn(_ sender: Any) {
+            dismiss(animated: true)
+        }
+        
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            var carImgStrings: [String] = []
+            switch (carType)
+            {
+            case "BMW":
+                cars = ["X1 SUV", "X2 Coupe SUV", "X3 SUV", "X5 SUV"]
+                prices = ["$40,000 - 50,000", "$40,000 - 50,000", "$50,000 - 60,000", "$60,000 - 70,000"]
+                carImgStrings = ["x1", "x2", "x3", "x5"]
+                break;
+            case "Ford":
+                cars = ["2026 Explorer", "2026 Escape", "2026 Bronco", "2026 Ranger"]
+                prices = ["$30,000 - 40,000", "$30,000 - 40,000", "$40,000 - 50,000", "$30,000 - 40,000"]
+                carImgStrings = ["explorer", "escape", "bronco", "ranger"]
+                break;
+            case "Harley Davidson":
+                cars = ["Street Bob", "Low Riders"]
+                prices = ["$14,999", "$18,999"]
+                carImgStrings = ["streetbob", "lowrider"]
+                break;
+            case "Volkswagen":
+                cars = ["Atlas", "Atlas Cross Sport"]
+                prices = ["$39,000 - 45,000", "$38,000", "$45,000"]
+                carImgStrings = ["atlas", "atlascross"]
+                break;
+            default:
+                break;
+            }
+            
+            images = []
+            for var carImg in carImgStrings
+            {
+                images.append(UIImage(named: carImg)!)
+            }
+        }
+        
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "showBuy",
                   let indexPath = sender as? IndexPath else { return }
@@ -27,6 +70,7 @@ import UIKit
             let destination = segue.destination as! BuyViewController
             destination.carName = cars[indexPath.section]
             destination.carPrice = prices[indexPath.section]
+            destination.carImage = images[indexPath.section]
         }
     }
 
@@ -45,7 +89,8 @@ import UIKit
             let cell = tableView.dequeueReusableCell(withIdentifier: "vehicleCell", for: indexPath)
             cell.textLabel?.text = cars[indexPath.section]
             cell.detailTextLabel?.text = prices[indexPath.section]
-            cell.imageView?.image = UIImage(systemName: "car.fill")
+            
+            //cell.imageView?.image = images[indexPath.section]
             
             return cell
         }
