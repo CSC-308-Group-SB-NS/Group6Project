@@ -21,3 +21,5 @@ New Concepts Used
      https://medium.com/@coolanil.saini/ios-uicollectionview-a-complete-guide-3152746763cc
 
 Testing: All you need to do to use this app is select what you want to choose and continue from there, nothing too out of the ordinary.
+
+Link to Repo: https://github.com/CSC-308-Group-SB-NS/Group6Project/tree/main 
